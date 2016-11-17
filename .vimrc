@@ -50,6 +50,9 @@ set statusline=%f
 
 " Mas ctrl-c to copy visual selection to clipboard
 map <C-c> "*y
+" Use system keyboard instead of vim's buffer
+set clipboard=unnamed
+
 
 " au BufNewFile,BufRead *.hql set filetype=hive expandtab
 
