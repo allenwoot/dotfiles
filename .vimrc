@@ -169,19 +169,8 @@ nnoremap c "_c
 vnoremap c "_c
 nnoremap C "_C
 vnoremap C "_C
-"nnoremap p "_p
-"nnoremap d "_d
-"vnoremap d "_d
-"nnoremap D "_D
-"vnoremap D "_D
-"nnoremap P "_P
-
-"nnoremap p "_p
-"nnoremap d "_d
-"vnoremap d "_d
-"nnoremap D "_D
-"vnoremap D "_D
-"nnoremap P "_P
+" When pasting, don't overwrite the register with what was removed
+xnoremap p pgvy
 
 " Smart casing
 " IE
