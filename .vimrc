@@ -175,3 +175,17 @@ vnoremap C "_C
 "nnoremap D "_D
 "vnoremap D "_D
 "nnoremap P "_P
+
+"nnoremap p "_p
+"nnoremap d "_d
+"vnoremap d "_d
+"nnoremap D "_D
+"vnoremap D "_D
+"nnoremap P "_P
+
+" Smart casing
+" IE
+" /copyright      " Case insensitive
+" /Copyright      " Case sensitive
+set ignorecase
+set smartcase
