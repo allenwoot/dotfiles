@@ -157,3 +157,21 @@ let g:syntastic_check_on_open = 1
 "set wildignore+=*\\tmp\\**
 "set wildignore+=*\\.DS_Store\\**
 "set wildignore+=*\\*.min.js\\**
+
+
+" The following remaps substitute and change commands to not overwrite any
+" registers.
+nnoremap s "_s
+vnoremap s "_s
+nnoremap S "_S
+vnoremap S "_S
+nnoremap c "_c
+vnoremap c "_c
+nnoremap C "_C
+vnoremap C "_C
+"nnoremap p "_p
+"nnoremap d "_d
+"vnoremap d "_d
+"nnoremap D "_D
+"vnoremap D "_D
+"nnoremap P "_P
