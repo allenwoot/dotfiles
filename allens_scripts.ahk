@@ -126,3 +126,18 @@ Return
 !k::
   Send {Up}
 Return
+
+\::BackSpace
+BackSpace::\
+
+^j::
+  Send {Down}
+Return
+
+^k::
+  Send {Up}
+Return
+
+^h::
+  Send {Left}
+Return
