@@ -3,7 +3,8 @@ scriptencoding utf-8
 
 call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree'
-Plug 'scrooloose/syntastic'
+Plug 'vim-syntastic/syntastic'
+Plug 'Quramy/tsuquyomi'
 Plug 'haya14busa/incsearch.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'airblade/vim-gitgutter'
@@ -14,6 +15,9 @@ Plug 'tpope/vim-endwise'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'jtai/vim-githublink'
+Plug 'elixir-editors/vim-elixir'
+Plug 'slashmili/alchemist.vim'
+Plug 'szw/vim-maximizer'
 call plug#end()
 
 " Incremental search
@@ -53,6 +57,10 @@ map <C-c> "*y
 " Use system keyboard instead of vim's buffer
 set clipboard=unnamed
 
+augroup SyntaxSettings
+  autocmd!
+  autocmd BufNewFile,BufRead *.tsx set filetype=typescript
+augroup END
 
 " au BufNewFile,BufRead *.hql set filetype=hive expandtab
 
@@ -82,16 +90,20 @@ map <leader>l 30zl
 set pastetoggle=<leader>p
 
 "arrow keys to resize vim panes
-nnoremap <Left> :vertical resize -5<cr>
-nnoremap <Right> :vertical resize +5<cr>
+"nnoremap <Left> :vertical resize -5<cr>
+"nnoremap <Right> :vertical resize +5<cr>
 "nnoremap <Up> :resize +5<cr>
 "nnoremap <Down> :resize -5<cr>
 
 "ctrl-hjkl to move between vim panes
-nnoremap <C-h> <C-w>h
-nnoremap <C-l> <C-w>l
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
+"nnoremap <C-h> <C-w>h
+"nnoremap <C-l> <C-w>l
+"nnoremap <C-j> <C-w>j
+"nnoremap <C-k> <C-w>k
+nnoremap <Left> <C-w>h
+nnoremap <Right> <C-w>l
+nnoremap <Down> <C-w>j
+nnoremap <Up> <C-w>k
 
 "ctrl-u and ctrl-d to move the page up or down by 5 lines
 nnoremap <C-u> 5<C-Y>M
@@ -106,6 +118,8 @@ map <leader>h :HardTimeToggle<cr>
 " nunmap <leader>fef
 map <leader>f zfim
 map <leader>o zo
+
+nnoremap <leader>m :MaximizerToggle<CR>
 
 " Airbnb recommended settings
 " Always add any detected errors into the location list
@@ -129,8 +143,9 @@ let g:syntastic_style_error_symbol   = '⚠'
 let g:syntastic_style_warning_symbol = '⚠'
 
 let g:syntastic_javascript_checkers    = ['eslint']
-let s:eslint_path                      = system('PATH=$(npm bin):$PATH && which eslint')
-let g:syntastic_javascript_eslint_exec = substitute(s:eslint_path, '^\n*\s*\(.\{-}\)\n*\s*$', '\1', '')
+let g:syntastic_typescript_checkers    = ['eslint']
+let g:syntastic_javascript_eslint_exe = '/Users/allenwu/repos/credit_card/product/dashboard/node_modules/.bin/eslint'
+"let g:syntastic_javascript_eslint_exe = '$(npm bin)/eslint'
 let g:syntastic_json_checkers          = ['jsonlint']
 let g:syntastic_ruby_checkers          = ['rubocop']
 let g:syntastic_scss_checkers          = ['scss_lint']
@@ -141,12 +156,12 @@ let g:syntastic_enable_signs = 1
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
-let g:syntastic_check_on_open = 1
-" custom settings
- let g:syntastic_mode_map = {
-   \ "mode": "active",
-   \ "passive_filetypes": ["eruby", "ruby"]
-   \}
+"let g:syntastic_check_on_open = 1
+"" custom settings
+" let g:syntastic_mode_map = {
+"   \ "mode": "active",
+"   \ "passive_filetypes": ["eruby", "ruby"]
+"   \}
 
 "set wildignore+=*\\CVS\\**
 "set wildignore+=*\\Zend\\**
